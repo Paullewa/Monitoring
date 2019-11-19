@@ -2,7 +2,7 @@ package Event;
 
 
 
-public  class Bestellung {
+public  class OrderEvent {
 	/** Id ist der kunde Id 
 	 * Bestellung_start
 	 * 
@@ -21,7 +21,7 @@ public  class Bestellung {
 	 * @param bESTELLUNGS 
 	 */
 	
-public Bestellung() {
+public OrderEvent() {
 	    Deliver = null;
 		id = -1;
 		//Bestellung_Start = null;
@@ -31,7 +31,7 @@ public Bestellung() {
 
     ///**Date bestellung_Start, Date bestellung_Ende
 
-public Bestellung( String Deliver,int id) {
+public OrderEvent( String Deliver,int id) {
 	this.id = id;
 	this.Deliver = Deliver;
 	//this.Bestellung_Start= new Date();
