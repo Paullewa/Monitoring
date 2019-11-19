@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 
 
 @Path("/Bestellungs")
-public class Bestellungservice {
+public class OrderEventservice {
 	
 
 	protected static final String[] BESTELLUNGS = {"Alter_kunden", "Neuen_Kunde"};
