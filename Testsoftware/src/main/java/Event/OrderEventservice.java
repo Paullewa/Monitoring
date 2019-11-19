@@ -1,7 +1,9 @@
 package Event;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -15,24 +17,25 @@ import javax.ws.rs.core.Response;
 import com.google.gson.Gson;
 
 
-@Path("/Bestellungs")
+@Path("/Orders")
 public class OrderEventservice {
+	// Making a map to store our information
+	private Map<String, OrderEvent> orderevents;
 	
-
-	protected static final String[] BESTELLUNGS = {"Alter_kunden", "Neuen_Kunde"};
-
+	public OrderEventservice() {
+		orderevents = new HashMap<>();
+	}
 
  	@GET
  	@Produces(MediaType.APPLICATION_JSON)
  	public String getBestellungs()
-     {
-	  List<OrderEvent>Bestellunglist = new ArrayList<>();
+ 	{
+ 		for (OrderEvent event : orderevents.values()) {
+ 			
+ 			 List<OrderEvent>OrderEventlist = new ArrayList<>();
 	
-	 for(int i = 0; i < BESTELLUNGS.length; ++i ) 
-		Bestellunglist.add(new OrderEvent(BESTELLUNGS[i],i));
-	 
-			Gson gson = new Gson();
-	   return gson.toJson(Bestellunglist.toArray(new OrderEvent[Bestellunglist.size()]));
+	 			Gson gson = new Gson();
+	   return gson.toJson(OrderEventlist.toArray(new OrderEvent[OrderEventlist.size()]));
 
 	}
 	
