@@ -27,8 +27,10 @@ public class OrderEventservice {
 	
 	public OrderEventservice() {
 		orderevents = new HashMap<String, OrderEvent>();
+		// Generate a key 
 		String testuuid = UUID.randomUUID().toString();
 		OrderEvent testevent = new OrderEvent("Test", testuuid, new Date());
+		// the key is corresponding to the Event_id our class
 		orderevents.put(testevent.getEvent_id(), testevent);
 	}
 
