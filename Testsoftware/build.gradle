@@ -11,12 +11,14 @@ repositories {
 dependencies {
     runtime 'com.google.code.gson:gson:2.8.5'
     runtime 'org.glassfish.jersey.containers:jersey-container-servlet:2.25'
+    runtime 'org.eclipse.persistence.platform.database.H2Platform'
     
     runtime 'javax.xml.bind:jaxb-api:2.2.11'
     runtime 'com.sun.xml.bind:jaxb-core:2.2.11'
     runtime 'com.sun.xml.bind:jaxb-impl:2.2.11'
     runtime 'javax.activation:activation:1.1.1'
 	runtime group: 'com.h2database', name: 'h2', version: '1.4.200'
+	
     
 }
 

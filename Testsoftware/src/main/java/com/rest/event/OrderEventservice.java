@@ -1,4 +1,4 @@
-package Event;
+	package com.rest.event;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -55,8 +55,7 @@ public class OrderEventservice {
  		return ret;
  	}
  	
- 	@POST
- 	//@Path("/checked")
+ 	@POST 	
  	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
  	// Just to post the repose 

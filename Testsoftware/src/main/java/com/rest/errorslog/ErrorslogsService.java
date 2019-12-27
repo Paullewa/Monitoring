@@ -1,4 +1,4 @@
-package Errorslog;
+package com.rest.errorslog;
 
 import java.sql.Date;
 import java.util.HashMap;
@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -47,9 +48,9 @@ public String geterrortoJSON(@PathParam("id") String id)
     			
 	return result;
 }
-
+@POST
 @Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.TEXT_HTML)
+@Produces(MediaType.TEXT_HTML)	
  public Response getresponse(String O_error)
  {
 	Gson gson = new Gson();

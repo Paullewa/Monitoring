@@ -1,4 +1,4 @@
-package Alertslog;
+package com.rest.Cancel;
 
 //public class AlertslogService {
 

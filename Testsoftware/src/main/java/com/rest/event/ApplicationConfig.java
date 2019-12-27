@@ -1,4 +1,4 @@
-package Event;
+package com.rest.event;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

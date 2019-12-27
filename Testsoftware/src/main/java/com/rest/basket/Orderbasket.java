@@ -1,6 +1,6 @@
-package Connectlog;
+package com.rest.basket;
 
-public class Connected {
+public class Orderbasket {
 
   protected  int id_logger;
   protected Boolean Is_connected;

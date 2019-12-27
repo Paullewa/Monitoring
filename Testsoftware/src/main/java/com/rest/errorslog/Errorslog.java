@@ -1,9 +1,15 @@
-package Errorslog;
+package com.rest.errorslog;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 
 public class Errorslog {
- 
+	 
 	 protected String ErrorDescription;
 	 protected String Id;	
 	 protected int ErrorsNumber;
@@ -56,7 +62,9 @@ public class Errorslog {
 	public void setErrorsNumber(int errorsNumber) {
 		ErrorsNumber = errorsNumber;
 	}
-	
+
+
+
 	
 	 
 }
