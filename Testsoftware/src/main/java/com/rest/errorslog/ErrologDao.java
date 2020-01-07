@@ -1,55 +1,76 @@
 package com.rest.errorslog;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+import com.rest.basket.Orderbasket;
+
+@XmlType
+@XmlRootElement
 public class ErrologDao {
 	
-		private ErrorslogsService errologservice = new ErrorslogsService();
-	
-		/**
-		public int getError(Errorslog newError) {
-		Connection con = errologservice.
-			Statement state = null;
+	public String AddError(int Id,String Errordescription, int Errornumber, Date time) {
+		
+				
+		  
+		  try {
+				Class.forName("org.h2.Driver");
+			Connection	con = DriverManager.getConnection( "jdbc:h2:~/Documents/orders.db","sa","");
+			Statement	state = con.createStatement();		
+			int Resultset = state.executeUpdate("insert into ERROR values(" + Id +", ' "+ Errordescription + " ',"+ Errornumber +", "+ time +") ");
 			
-		try {
-			Class.forName("org.h2.Driver");
-			con = DriverManager.getConnection( "jdbc:h2:~/Documents/orders.db","sa","");
-			state = con.createStatement();
-			
-			//1- Create a Table
-			String sql ="CREATE TABLE Error" + 
-		            "(id INT NOT NULL," + 
-		            " ErrorDescription VARCHAR(255)," +  
-		            " ErrorsNumber INT," +
-		            " time Date," +
-		            " PRIMARY KEY ( id ));"; 
-			
-			//2- Add Element		
-			String sql =  "INSERT INTO Error " + "VALUES (6,'Serverbug',040,'1998-04-16')"; 
-			//3-executed the Sql_statement
-			state.execute(sql);	
-					          
-		   }catch(Exception e){ System.out.println(e);
-		   
-						      }
-		return 0;	
+		if(Resultset==1) {
+			return "Successful";
 		}
-	    **/
-/**		
-	 public void closeConnection() throws SQLException {
-		 	 		
-	    	if (Isconnect()) {
-	    	con.close();
-	    	con = null;
-	    	
-	    	}
-	 }
-	    	
-	 public boolean Isconnect()
-	 {
-		 return (con!= null);
-	 };
-**/
+		
+		con.close();
+		
+		state.close();
+		
+		
+	  } catch (Exception e) {
+		
 	}
+		  return "Db error";
+		
+	}
+	
+	
+	public List<Errorslog>getallError(){
+	
+		List<Errorslog> ErrorList  = null;		
+		  
+			  try {
+					Class.forName("org.h2.Driver");
+				Connection	con = DriverManager.getConnection( "jdbc:h2:~/Documents/orders.db","sa","");
+				Statement	state = con.createStatement();		
+				ResultSet rs = state.executeQuery("Select * from ERROR ");
+				ErrorList = new ArrayList<Errorslog>();
+				while(rs.next()) {
+					String id = rs.getNString(0);
+					String Errordescription = rs.getNString(1);
+					int Errornumber = rs.getInt(2);
+					Date time = rs.getDate(3);
+		
+				 ErrorList.add(new Errorslog(id,Errordescription,Errornumber,time));
+		
+	 
+			  }
+			con.close();
+			rs.close();
+			state.close();
+			
+			return ErrorList;
+		  } catch (Exception e) {
+			
+		}
+			  return ErrorList;
+	}
+}
 
 	 
 			  

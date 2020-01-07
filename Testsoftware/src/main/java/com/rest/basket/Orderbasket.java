@@ -5,20 +5,20 @@ import com.sun.xml.txw2.annotation.XmlElement;
 
 public class Orderbasket {
 
-  protected  Order Orderbasket;
+  protected  Order orderbasket;
   //Id for the item inside our badket
   protected int Item_id;
   // Informe us about the situation our Basket
   public String Status;
 public Orderbasket() {
 	
-	Orderbasket = null;
+	orderbasket = null;
 	Item_id = -1;
 	Status = " ";
 }
 public Orderbasket(Order _orderbasket, int _item_id, String _status) {
 	
-	Orderbasket = _orderbasket;
+	orderbasket = _orderbasket;
 	Item_id = _item_id;
 	Status = _status;
 	
@@ -32,11 +32,11 @@ public Order getOrderbasket(Order Orderb) {
 			 ;
 		}
 	}
-	return Orderbasket;
+	return orderbasket;
 }
 
 public void setOrderbasket(Order orderbasket) {
-	Orderbasket = orderbasket;
+	orderbasket = orderbasket;
 }
 // collect all Item_id an set it inside a array
 @XmlElement

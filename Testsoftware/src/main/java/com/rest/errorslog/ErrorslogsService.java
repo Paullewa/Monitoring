@@ -2,12 +2,14 @@ package com.rest.errorslog;
 
 import java.sql.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -18,7 +20,8 @@ import com.google.gson.Gson;
 
 @Path("/Error")	
 public class ErrorslogsService {
-
+	
+	
 	private Map<String,Errorslog> Errors;
 
 	public ErrorslogsService() {
@@ -28,7 +31,7 @@ public class ErrorslogsService {
 	  Errors.put(erreur.getId(), erreur);
 		
 	}
-	
+	/**
 @GET
 @Consumes
  public String getErrolog() {
@@ -53,6 +56,7 @@ public String geterrortoJSON(@PathParam("id") String id)
 @Produces(MediaType.TEXT_HTML)	
  public Response getresponse(String O_error)
  {
+	
 	Gson gson = new Gson();
 	Errorslog response = gson.fromJson(O_error,Errorslog.class);
 		response.setErrorDescription("Server Error");
@@ -61,7 +65,20 @@ public String geterrortoJSON(@PathParam("id") String id)
 	    response.setTime(new Date(0));
 			
 	 Errors.put(response.getId(), response);
-	 return Response.status(200).build();
+	 return Response.status(200).build(); 
  }
+**/
+@PUT
+@Consumes(MediaType.APPLICATION_JSON)
+ public String AddError(@PathParam("id") String id) {
+	ErrologDao Hero = new ErrologDao();
+	Gson gson = new Gson();
 	
+	Hero.AddError(0, "Bug", 404, new Date(0));
+	
+	
+	 
+	return gson.toJson(Hero);
+	
+}
 }
