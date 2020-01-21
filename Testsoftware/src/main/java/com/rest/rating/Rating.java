@@ -1,15 +1,17 @@
 package com.rest.rating;
 
-import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Rating {
-	
+	//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	// just add you rating hier
 	public String Note;
 	public Date Rating_date;
 
 	public Rating() {
-	    Rating_date = new Date(0);
+	    Rating_date = new Date();
 		Note = null;
 	}
 

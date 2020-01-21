@@ -1,13 +1,14 @@
 package com.rest.order_product;
 
-import java.sql.Date;
+
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class Order implements Iorder {
+public  class Order implements Iorder {
 	
 private String Order_name;	
 private String id;
@@ -18,7 +19,7 @@ private String customer_Id;
 public Order() {
 	Order_name = null;
 	id = "";
-	dateCreated = new Date(0);
+	dateCreated = new Date();
 	customer_Id = "";
 	
 }
@@ -38,7 +39,7 @@ public void setId(String id) {
 	this.id = id;
 }
 
-public Date getDateCreated() {
+public Date getDateCreated1() {
 	return dateCreated;
 }
 
@@ -61,8 +62,24 @@ public String getOrder_name() {
 public void setOrder_name(String order_name) {
 	Order_name = order_name;
 }
+
+@Override
+public java.sql.Date getDateCreated() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public void setDateCreated(java.sql.Date dateCreated) {
+	// TODO Auto-generated method stub
 	
 }
+
+
+	
+}
+	
+
 
 
 	

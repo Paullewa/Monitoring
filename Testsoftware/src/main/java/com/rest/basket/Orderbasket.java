@@ -1,5 +1,7 @@
 package com.rest.basket;
 
+import java.util.List;
+
 import com.rest.order_product.Order;
 import com.sun.xml.txw2.annotation.XmlElement;
 
@@ -58,7 +60,15 @@ public String getStatus() {
 public void setStatus(String status) {
 	Status = status;
 }   
-  
+ 
+private static List<Order>Listoder;
+ 
+
+public static void addOder(Order a){
+	
+	 Listoder.add(a);
+	
+}
 
   
 }
